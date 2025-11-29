@@ -1,1 +1,107 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ReavexHub</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="sidebar">
+    <h2>ReavexHub</h2>
+    <div class="menu-item" onclick="showSection('bookmarks')">📌 Könyvjelzők</div>
+    <div class="menu-item" onclick="showSection('quicklaunch')">⚡ Quick Launch</div>
+    <div class="menu-item" onclick="showSection('notes')">📝 Jegyzetek</div>
+    <div class="menu-item" onclick="showSection('calculator')">🧮 Számológép</div>
+    <div class="menu-item" onclick="showSection('timer')">⏱️ Időzítő</div>
+    <div class="menu-item" onclick="showSection('settings')">⚙️ Settings</div>
+</div>
 
+<div class="main-content">
+    <!-- Könyvjelzők -->
+    <section id="bookmarks" class="section active">
+        <h3>Könyvjelzők</h3>
+        <input type="text" id="bookmarkName" placeholder="Név">
+        <input type="text" id="bookmarkURL" placeholder="URL vagy fájl">
+        <select id="bookmarkType">
+            <option value="url">Web URL</option>
+            <option value="file">Lokális fájl</option>
+        </select>
+        <button class="btn-animated" onclick="addBookmark()">Hozzáadás</button>
+        <input type="text" id="searchBookmark" placeholder="Keresés..." oninput="searchBookmarks()">
+        <ul id="bookmarkList"></ul>
+    </section>
+
+    <!-- Quick Launch -->
+    <section id="quicklaunch" class="section">
+        <h3>Quick Launch</h3>
+        <div id="quickLaunchContainer"></div>
+    </section>
+
+    <!-- Jegyzetek -->
+    <section id="notes" class="section">
+        <h3>Jegyzetek</h3>
+        <textarea id="noteInput" placeholder="Írj egy gyors jegyzetet..."></textarea>
+        <button class="btn-animated" onclick="addNote()">Mentés</button>
+        <ul id="notesList"></ul>
+    </section>
+
+    <!-- Számológép -->
+    <section id="calculator" class="section">
+        <h3>Számológép</h3>
+        <div id="calculator">
+            <div id="calculatorDisplay">0</div>
+            <div class="calculator-buttons">
+                <button onclick="appendToDisplay('7')">7</button>
+                <button onclick="appendToDisplay('8')">8</button>
+                <button onclick="appendToDisplay('9')">9</button>
+                <button onclick="appendToDisplay('+')">+</button>
+                <button onclick="appendToDisplay('4')">4</button>
+                <button onclick="appendToDisplay('5')">5</button>
+                <button onclick="appendToDisplay('6')">6</button>
+                <button onclick="appendToDisplay('-')">-</button>
+                <button onclick="appendToDisplay('1')">1</button>
+                <button onclick="appendToDisplay('2')">2</button>
+                <button onclick="appendToDisplay('3')">3</button>
+                <button onclick="appendToDisplay('*')">*</button>
+                <button onclick="clearDisplay()">C</button>
+                <button onclick="appendToDisplay('0')">0</button>
+                <button onclick="calculate()">=</button>
+                <button onclick="appendToDisplay('/')">/</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Időzítő -->
+    <section id="timer" class="section">
+        <h3>Időzítő</h3>
+        <div id="timer">
+            <div id="timerDisplay">00:00:00</div>
+            <input type="number" id="timerMinutes" placeholder="Perc" min="0" max="59">
+            <input type="number" id="timerSeconds" placeholder="Másodperc" min="0" max="59">
+            <button onclick="startTimer()">Indítás</button>
+            <button onclick="stopTimer()">Leállítás</button>
+            <button onclick="resetTimer()">Visszaállítás</button>
+        </div>
+    </section>
+
+    <!-- Beállítások -->
+    <section id="settings" class="section">
+        <h3>Beállítások</h3>
+        <label>Sötét mód:
+            <input type="checkbox" id="darkModeToggle" onchange="toggleDarkMode()">
+        </label>
+        <label>Quick Launch szám:
+            <input type="number" id="quickLaunchNumber" min="1" max="10" value="4" onchange="updateQuickLaunchNumber()">
+        </label>
+        <label>Auto-indítás:
+            <input type="checkbox" id="autoStartToggle" onchange="toggleAutoStart()">
+        </label>
+        <p><small>Auto-indítás PWA vagy Chrome extension esetén működik.</small></p>
+    </section>
+</div>
+
+<script src="storage.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
