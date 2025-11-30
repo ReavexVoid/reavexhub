@@ -15,6 +15,26 @@
     <div class="menu-item" onclick="showSection('calculator')">🧮 Számológép</div>
     <div class="menu-item" onclick="showSection('timer')">⏱️ Időzítő</div>
     <div class="menu-item" onclick="showSection('settings')">⚙️ Settings</div>
+    <div class="menu-item" onclick="showSection('todos')">✅ To-Do List</div>
+    <div class="menu-item" onclick="showSection('weather')">🌤️ Weather</div>
+    <div class="menu-item" onclick="showSection('currency')">💱 Currency Converter</div>
+    <div class="menu-item" onclick="showSection('unit')">📏 Unit Converter</div>
+    <div class="menu-item" onclick="showSection('password')">🔑 Password Generator</div>
+    <div class="menu-item" onclick="showSection('quote')">💬 Random Quote</div>
+    <div class="menu-item" onclick="showSection('pomodoro')">🍅 Pomodoro Timer</div>
+    <div class="menu-item" onclick="showSection('habits')">📈 Habit Tracker</div>
+    <div class="menu-item" onclick="showSection('expenses')">💸 Expense Tracker</div>
+    <div class="menu-item" onclick="showSection('calendar')">📅 Calendar</div>
+    <div class="menu-item" onclick="showSection('files')">📁 File Organizer</div>
+    <div class="menu-item" onclick="showSection('music')">🎵 Music Player</div>
+    <div class="menu-item" onclick="showSection('videos')">🎥 Video Player</div>
+    <div class="menu-item" onclick="showSection('texts')">📝 Text Editor</div>
+    <div class="menu-item" onclick="showSection('drawings')">🎨 Drawing Canvas</div>
+    <div class="menu-item" onclick="showSection('rss')">📰 RSS Reader</div>
+    <div class="menu-item" onclick="showSection('chats')">💬 Chat App</div>
+    <div class="menu-item" onclick="showSection('games')">🎮 Tic-Tac-Toe</div>
+    <div class="menu-item" onclick="showSection('news')">🗞️ News Aggregator</div>
+    <div class="menu-item" onclick="showSection('reminders')">⏰ Reminders</div>
 </div>
 
 <div class="main-content">
@@ -88,16 +108,229 @@
     <!-- Beállítások -->
     <section id="settings" class="section">
         <h3>Beállítások</h3>
-        <label>Sötét mód:
-            <input type="checkbox" id="darkModeToggle" onchange="toggleDarkMode()">
-        </label>
-        <label>Quick Launch szám:
-            <input type="number" id="quickLaunchNumber" min="1" max="10" value="4" onchange="updateQuickLaunchNumber()">
-        </label>
-        <label>Auto-indítás:
-            <input type="checkbox" id="autoStartToggle" onchange="toggleAutoStart()">
-        </label>
+        <label>Sötét mód: <input type="checkbox" id="darkModeToggle" onchange="toggleDarkMode()"></label>
+        <label>Quick Launch szám: <input type="number" id="quickLaunchNumber" min="1" max="10" value="4" onchange="updateQuickLaunchNumber()"></label>
+        <label>Auto-indítás: <input type="checkbox" id="autoStartToggle" onchange="toggleAutoStart()"></label>
+        <label>Theme: <select id="themeSelect" onchange="updateTheme()"><option value="default">Default</option><option value="light">Light</option><option value="dark">Dark</option></select></label>
+        <label>Font Size: <input type="number" id="fontSizeInput" min="10" max="30" onchange="updateFontSize()"></label>
+        <label>Font Family: <select id="fontFamilySelect" onchange="updateFontFamily()"><option value="Arial">Arial</option><option value="Times">Times</option><option value="Courier">Courier</option></select></label>
+        <label>Language: <select id="languageSelect" onchange="updateLanguage()"><option value="hu">Hungarian</option><option value="en">English</option></select></label>
+        <label>Notifications: <input type="checkbox" id="notificationsToggle" onchange="toggleNotifications()"></label>
+        <label>Sound Effects: <input type="checkbox" id="soundEffectsToggle" onchange="toggleSoundEffects()"></label>
+        <label>Auto Save: <input type="checkbox" id="autoSaveToggle" onchange="toggleAutoSave()"></label>
+        <label>Backup Frequency: <select id="backupFrequencySelect" onchange="updateBackupFrequency()"><option value="daily">Daily</option><option value="weekly">Weekly</option></select></label>
+        <label>Export Format: <select id="exportFormatSelect" onchange="updateExportFormat()"><option value="json">JSON</option><option value="csv">CSV</option></select></label>
+        <label>Import Format: <select id="importFormatSelect" onchange="updateImportFormat()"><option value="json">JSON</option><option value="csv">CSV</option></select></label>
+        <label>Sync Enabled: <input type="checkbox" id="syncEnabledToggle" onchange="toggleSyncEnabled()"></label>
+        <label>Sync Provider: <select id="syncProviderSelect" onchange="updateSyncProvider()"><option value="none">None</option><option value="google">Google</option></select></label>
+        <label>Privacy Mode: <input type="checkbox" id="privacyModeToggle" onchange="togglePrivacyMode()"></label>
+        <label>Data Retention (days): <input type="number" id="dataRetentionInput" min="1" onchange="updateDataRetention()"></label>
+        <label>Accessibility: <input type="checkbox" id="accessibilityToggle" onchange="toggleAccessibility()"></label>
+        <label>Keyboard Shortcuts: <input type="checkbox" id="keyboardShortcutsToggle" onchange="toggleKeyboardShortcuts()"></label>
+        <label>Gesture Support: <input type="checkbox" id="gestureSupportToggle" onchange="toggleGestureSupport()"></label>
+        <label>Offline Mode: <input type="checkbox" id="offlineModeToggle" onchange="toggleOfflineMode()"></label>
+        <label>Performance Mode: <select id="performanceModeSelect" onchange="updatePerformanceMode()"><option value="balanced">Balanced</option><option value="high">High</option></select></label>
+        <label>Update Check: <input type="checkbox" id="updateCheckToggle" onchange="toggleUpdateCheck()"></label>
+        <label>Beta Features: <input type="checkbox" id="betaFeaturesToggle" onchange="toggleBetaFeatures()"></label>
+        <label>Analytics: <input type="checkbox" id="analyticsToggle" onchange="toggleAnalytics()"></label>
+        <label>Feedback: <input type="checkbox" id="feedbackToggle" onchange="toggleFeedback()"></label>
+        <label>Support: <input type="checkbox" id="supportToggle" onchange="toggleSupport()"></label>
+        <label>Tutorial: <input type="checkbox" id="tutorialToggle" onchange="toggleTutorial()"></label>
+        <label>Reset on Start: <input type="checkbox" id="resetOnStartToggle" onchange="toggleResetOnStart()"></label>
+        <label>Custom CSS: <textarea id="customCSSInput" onchange="updateCustomCSS()"></textarea></label>
+        <label>Custom JS: <textarea id="customJSInput" onchange="updateCustomJS()"></textarea></label>
+        <label>Weather API Key: <input type="text" id="weatherAPIKeyInput" onchange="updateAPIKeys()"></label>
+        <label>Currency API Key: <input type="text" id="currencyAPIKeyInput" onchange="updateAPIKeys()"></label>
+        <label>News API Key: <input type="text" id="newsAPIKeyInput" onchange="updateAPIKeys()"></label>
         <p><small>Auto-indítás PWA vagy Chrome extension esetén működik.</small></p>
+    </section>
+
+    <!-- To-Do List -->
+    <section id="todos" class="section">
+        <h3>To-Do List</h3>
+        <input type="text" id="todoInput" placeholder="Add a new task...">
+        <button class="btn-animated" onclick="addTodo()">Add Task</button>
+        <ul id="todoList"></ul>
+    </section>
+
+    <!-- Weather -->
+    <section id="weather" class="section">
+        <h3>Weather</h3>
+        <input type="text" id="weatherCity" placeholder="Enter city">
+        <button class="btn-animated" onclick="fetchWeather()">Get Weather</button>
+        <div id="weatherDisplay"></div>
+    </section>
+
+    <!-- Currency Converter -->
+    <section id="currency" class="section">
+        <h3>Currency Converter</h3>
+        <input type="number" id="currencyAmount" placeholder="Amount">
+        <select id="currencyFrom">
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="HUF">HUF</option>
+        </select>
+        <select id="currencyTo">
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="HUF">HUF</option>
+        </select>
+        <button class="btn-animated" onclick="convertCurrency()">Convert</button>
+        <div id="currencyResult"></div>
+    </section>
+
+    <!-- Unit Converter -->
+    <section id="unit" class="section">
+        <h3>Unit Converter</h3>
+        <input type="number" id="unitValue" placeholder="Value">
+        <select id="unitFrom">
+            <option value="m">Meters</option>
+            <option value="km">Kilometers</option>
+            <option value="ft">Feet</option>
+        </select>
+        <select id="unitTo">
+            <option value="m">Meters</option>
+            <option value="km">Kilometers</option>
+            <option value="ft">Feet</option>
+        </select>
+        <button class="btn-animated" onclick="convertUnit()">Convert</button>
+        <div id="unitResult"></div>
+    </section>
+
+    <!-- Password Generator -->
+    <section id="password" class="section">
+        <h3>Password Generator</h3>
+        <input type="number" id="passwordLength" placeholder="Length" value="12">
+        <button class="btn-animated" onclick="generatePassword()">Generate</button>
+        <div id="passwordDisplay"></div>
+    </section>
+
+    <!-- Random Quote -->
+    <section id="quote" class="section">
+        <h3>Random Quote</h3>
+        <button class="btn-animated" onclick="fetchQuote()">Get Quote</button>
+        <div id="quoteDisplay"></div>
+    </section>
+
+    <!-- Pomodoro Timer -->
+    <section id="pomodoro" class="section">
+        <h3>Pomodoro Timer</h3>
+        <div id="pomodoroDisplay">25:00</div>
+        <button onclick="startPomodoro()">Start</button>
+        <button onclick="stopPomodoro()">Stop</button>
+        <button onclick="resetPomodoro()">Reset</button>
+    </section>
+
+    <!-- Habit Tracker -->
+    <section id="habits" class="section">
+        <h3>Habit Tracker</h3>
+        <input type="text" id="habitInput" placeholder="Add a habit...">
+        <button class="btn-animated" onclick="addHabit()">Add Habit</button>
+        <ul id="habitList"></ul>
+    </section>
+
+    <!-- Expense Tracker -->
+    <section id="expenses" class="section">
+        <h3>Expense Tracker</h3>
+        <input type="text" id="expenseDesc" placeholder="Description">
+        <input type="number" id="expenseAmount" placeholder="Amount">
+        <button class="btn-animated" onclick="addExpense()">Add Expense</button>
+        <ul id="expenseList"></ul>
+    </section>
+
+    <!-- Calendar -->
+    <section id="calendar" class="section">
+        <h3>Calendar</h3>
+        <div id="calendarDisplay"></div>
+    </section>
+
+    <!-- File Organizer -->
+    <section id="files" class="section">
+        <h3>File Organizer</h3>
+        <input type="file" id="fileInput" multiple>
+        <button class="btn-animated" onclick="uploadFiles()">Upload Files</button>
+        <ul id="fileList"></ul>
+    </section>
+
+    <!-- Music Player -->
+    <section id="music" class="section">
+        <h3>Music Player</h3>
+        <input type="file" id="musicInput" accept="audio/*">
+        <button class="btn-animated" onclick="loadMusic()">Load Music</button>
+        <audio id="musicPlayer" controls></audio>
+        <ul id="musicList"></ul>
+    </section>
+
+    <!-- Video Player -->
+    <section id="videos" class="section">
+        <h3>Video Player</h3>
+        <input type="file" id="videoInput" accept="video/*">
+        <button class="btn-animated" onclick="loadVideo()">Load Video</button>
+        <video id="videoPlayer" controls></video>
+        <ul id="videoList"></ul>
+    </section>
+
+    <!-- Text Editor -->
+    <section id="texts" class="section">
+        <h3>Text Editor</h3>
+        <textarea id="textEditor" placeholder="Start typing..."></textarea>
+        <button class="btn-animated" onclick="saveText()">Save Text</button>
+        <ul id="textList"></ul>
+    </section>
+
+    <!-- Drawing Canvas -->
+    <section id="drawings" class="section">
+        <h3>Drawing Canvas</h3>
+        <canvas id="drawingCanvas" width="400" height="300"></canvas>
+        <button class="btn-animated" onclick="clearCanvas()">Clear</button>
+        <button class="btn-animated" onclick="saveDrawing()">Save Drawing</button>
+        <ul id="drawingList"></ul>
+    </section>
+
+    <!-- RSS Reader -->
+    <section id="rss" class="section">
+        <h3>RSS Reader</h3>
+        <input type="text" id="rssURL" placeholder="RSS URL">
+        <button class="btn-animated" onclick="addRSS()">Add RSS</button>
+        <div id="rssDisplay"></div>
+    </section>
+
+    <!-- Chat App -->
+    <section id="chats" class="section">
+        <h3>Chat App</h3>
+        <input type="text" id="chatMessage" placeholder="Type message...">
+        <button class="btn-animated" onclick="sendMessage()">Send</button>
+        <div id="chatDisplay"></div>
+    </section>
+
+    <!-- Tic-Tac-Toe -->
+    <section id="games" class="section">
+        <h3>Tic-Tac-Toe</h3>
+        <div>
+            <label>Mode: <select id="gameMode" onchange="changeMode()"><option value="pvp">Player vs Player</option><option value="ai">Player vs AI</option></select></label>
+            <label>Difficulty: <select id="aiDifficulty" onchange="changeDifficulty()"><option value="easy">Easy</option><option value="hard">Hard (Unbeatable)</option></select></label>
+        </div>
+        <div id="gameBoard"></div>
+        <div id="gameStatus">Player X's turn</div>
+        <div id="scoreBoard">X: 0 | O: 0 | Draws: 0</div>
+        <button class="btn-animated" onclick="resetGame()">Reset Game</button>
+        <button class="btn-animated" onclick="resetScore()">Reset Score</button>
+    </section>
+
+    <!-- News Aggregator -->
+    <section id="news" class="section">
+        <h3>News Aggregator</h3>
+        <button class="btn-animated" onclick="fetchNews()">Fetch News</button>
+        <div id="newsDisplay"></div>
+    </section>
+
+    <!-- Reminders -->
+    <section id="reminders" class="section">
+        <h3>Reminders</h3>
+        <input type="text" id="reminderText" placeholder="Reminder text">
+        <input type="datetime-local" id="reminderTime">
+        <button class="btn-animated" onclick="addReminder()">Add Reminder</button>
+        <ul id="reminderList"></ul>
     </section>
 </div>
 
