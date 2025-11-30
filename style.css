@@ -165,3 +165,34 @@ body.light-mode #timer button {
     background-color: #8e44ad;
     color: white;
 }
+
+/* Tic-Tac-Toe */
+#gameBoard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 5px;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+}
+
+#gameBoard button {
+    width: 100%;
+    height: 100%;
+    font-size: 24px;
+    font-weight: bold;
+    border: 2px solid #333;
+    background-color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#gameBoard button:hover {
+    background-color: #f0f0f0;
+}
+
+#gameBoard button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
